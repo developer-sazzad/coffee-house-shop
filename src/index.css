@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.navbarBg {
+    background-image: url('assets/more/15.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+.product-bg{
+    background-image: url('assets/more/1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.heroBg {
+    background-image: url('assets/more/3.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.footerBg{
+    background-image: url('assets/more/13.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.active{
+    text-decoration: underline;
+}
