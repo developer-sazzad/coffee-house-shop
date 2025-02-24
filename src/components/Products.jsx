@@ -1,10 +1,12 @@
 import { Link, useLoaderData } from "react-router-dom";
 import ProductView from "./ProductView";
 import { PiCoffee } from "react-icons/pi";
+import { useState } from "react";
 
 
 const Products = () => {
-    const coffees = useLoaderData();
+    const loadCoffees = useLoaderData();
+    const [coffees, setCoffee] = useState(loadCoffees);
     return (
         <div className="w-[90%] mx-auto py-20">
 
@@ -15,7 +17,11 @@ const Products = () => {
             </div>
             <div className="grid grid-cols-2 gap-10">
                 {
-                    coffees.map(coffee => <ProductView key={coffee._id} coffee={coffee}
+                    coffees.map(coffee => <ProductView
+                        key={coffee._id}
+                        coffee={coffee}
+                        coffees={coffees}
+                        setCoffee={setCoffee}
                     ></ProductView>)
                 }
             </div>

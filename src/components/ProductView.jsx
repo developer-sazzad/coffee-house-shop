@@ -5,12 +5,11 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ProductView = ({ coffee }) => {
+const ProductView = ({ coffee, coffees, setCoffee }) => {
     const { _id, name, quentity, supplier, category, photo } = coffee;
 
     const handleDelete = _id => {
         // console.log(_id);
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -32,6 +31,8 @@ const ProductView = ({ coffee }) => {
                                 text: "Your Coffee has been deleted.",
                                 icon: "success"
                             });
+                            const remaining = coffees.filter(cof => cof._id !== _id);
+                            setCoffee(remaining);
                         }
                     })
             }
@@ -70,5 +71,7 @@ const ProductView = ({ coffee }) => {
 export default ProductView;
 
 ProductView.propTypes = {
-    coffee: PropTypes.object
+    coffee: PropTypes.object,
+    coffees: PropTypes.object,
+    setCoffee: PropTypes.object
 }
