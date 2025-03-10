@@ -2,6 +2,10 @@ import Lottie from 'lottie-react';
 import loginLottie from '../assets/lottie/LoginLottie.json'
 import { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
+import { ImGithub } from 'react-icons/im';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/firebase.config';
 const SingIn = () => {
     const { signInUser, signInGoogle, setUser } = useContext(AuthContext);
 
@@ -13,7 +17,7 @@ const SingIn = () => {
         console.log(email, password)
         signInUser(email, password)
             .then(result => {
-                console.log(result.user)
+                setUser(result.user)
             })
             .catch(error => {
                 console.log(error.message)
@@ -23,12 +27,15 @@ const SingIn = () => {
     const googleLogin = () => {
         signInGoogle()
             .then(result => {
-                setUser(result.user)
+                onAuthStateChanged(auth, () => {
+                    setUser(result.user)
+                })
             })
             .catch(error => {
                 console.log(error.message)
             })
     }
+
 
     return (
         <div className="w-[90%] mx-auto py-20">
@@ -42,10 +49,10 @@ const SingIn = () => {
                     <h1 className="text-center text-2xl md:text-3xl font-bold">Login now!</h1>
                     <div className="my-10 flex justify-center gap-5">
                         <button onClick={googleLogin} className='btn '>
-                            Login with Google
+                            <FcGoogle /> Login with Google
                         </button>
-                        <button onClick={googleLogin} className='btn'>
-                            Login With Github
+                        <button className='btn'>
+                            <ImGithub /> Login With Github
                         </button>
                     </div>
                     <form onSubmit={handleSignInUser} className="block ">
