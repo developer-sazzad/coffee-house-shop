@@ -42,14 +42,14 @@ const UpdateCoffee = () => {
             })
     }
     return (
-        <div className="w-[90%] mx-auto">
-            <div className="p-8 md:px-20 md:py-16 my-10 bg-gray-300">
-                <Link to='/'>
-                    <button className="btn btn-neutral text-white">
-                        <TiArrowBackOutline />
-                        Back to Home
-                    </button>
-                </Link>
+        <div className="w-[90%] mx-auto md:py-12 my-8">
+            <Link to='/'>
+                <button className="btn btn-neutral text-white">
+                    <TiArrowBackOutline />
+                    Back to Home
+                </button>
+            </Link>
+            <div className="p-8 md:px-20 mt-10 bg-gray-300">
                 <h3 className="text-3xl font-bold text-center pt-10 mb-10">Update a Coffee</h3>
                 <form onSubmit={handleUpdateCoffee} className="space-y-5">
                     {/* Add coffee name and quentity row */}

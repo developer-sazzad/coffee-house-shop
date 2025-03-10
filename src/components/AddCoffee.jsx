@@ -1,3 +1,5 @@
+import { TiArrowBackOutline } from "react-icons/ti";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddCoffee = () => {
@@ -36,25 +38,31 @@ const AddCoffee = () => {
             })
     }
     return (
-        <div className="w-[90%] mx-auto">
-            <div className="p-8 md:px-20 md:py-16 my-10 bg-gray-300">
+        <div className="w-[90%] mx-auto md:py-10 my-8">
+            <Link to='/'>
+                <button className="btn btn-neutral text-white">
+                    <TiArrowBackOutline />
+                    Back to Home
+                </button>
+            </Link>
+            <div className="p-8 md:px-20 my-10 bg-gray-300">
                 <h3 className="text-3xl font-bold text-center mb-10">Add a Coffee</h3>
                 <form onSubmit={handleAddCoffee} className="space-y-5">
                     {/* Add coffee name and quentity row */}
                     <div className="md:flex md:space-y-0 gap-5">
                         <label className="form-control w-full">
                             <span>Name</span>
-                            <input type="text" name="name" placeholder="Enter coffee name" className="input input-bordered input-lg w-full" />
+                            <input type="text" name="name" placeholder="Enter coffee name" className="input input-bordered input-lg w-full" required/>
                         </label>
                         <label className="form-control w-full">
                             <span>Quentity</span>
-                            <input type="text" name="quentity" placeholder="Enter coffee quentity" className="input input-bordered input-lg w-full" />
+                            <input type="text" name="quentity" placeholder="Enter coffee quentity" className="input input-bordered input-lg w-full" required/>
                         </label>
                     </div>
                     <div className="md:flex gap-5">
                         <label className="form-control w-full">
                             <span>Supplier</span>
-                            <input type="text" name="supplier" placeholder="Enter coffee supplier" className="input input-bordered input-lg w-full" />
+                            <input type="text" name="supplier" placeholder="Enter coffee supplier" className="input input-bordered input-lg w-full" required/>
                         </label>
                         <label className="form-control w-full">
                             <span>Taste</span>
@@ -64,7 +72,7 @@ const AddCoffee = () => {
                     <div className="md:flex gap-5">
                         <label className="form-control w-full">
                             <span>Category</span>
-                            <input type="text" name="category" placeholder="Enter coffee category" className="input input-bordered input-lg w-full" />
+                            <input type="text" name="category" placeholder="Enter coffee category" className="input input-bordered input-lg w-full" required/>
                         </label>
                         <label className="form-control w-full">
                             <span>Details</span>
@@ -73,7 +81,7 @@ const AddCoffee = () => {
                     </div>
                     <label className="form-control w-full">
                         <span>Photo</span>
-                        <input type="text" name="photo" placeholder="Enter photo URL" className="input input-bordered input-lg w-full" />
+                        <input type="text" name="photo" placeholder="Enter photo URL" className="input input-bordered input-lg w-full" required/>
                     </label>
                     <input type="submit" className="btn btn-neutral mt-10 btn-lg w-full" value="Add Coffee" />
                 </form>

@@ -1,35 +1,39 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import signUpLottie from '../assets/lottie/sign up.json'
+import Lottie from "lottie-react";
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const handleSignUp = e => {
         e.preventDefault();
+        const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        
+
 
         createUser(email, password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.log(error.message)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
     return (
         <div className="w-[90%] mx-auto py-20">
-            <div className="flex gap-10 flex-col lg:flex-row-reverse">
-                <div className="flex-1 text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Sign Up now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
+            <div className="flex gap-10 flex-col lg:flex-row">
+                <div className="flex-1 text-center flex justify-center flex-col items-center">
+                    <div className="w-[150px] md:w-[400px]">
+                        <Lottie animationData={signUpLottie} loop={true} />
+                    </div>
                 </div>
-                <div className="flex-1 shadow-2xl rounded-2xl bg-gray-100">
-                    <form onSubmit={handleSignUp} className="block py-10 px-10 ">
+                <div className="flex-1 py-10 px-10 shadow-2xl rounded-2xl bg-gray-100">
+                    <h1 className="text-2xl md:text-3xl font-bold pb-10">Sign Up now!</h1>
+                    <form onSubmit={handleSignUp} className="block ">
                         <fieldset className="fieldset">
+                            <label className="fieldset-label">Name</label>
+                            <input type="text" name="name" className="input focus:outline-none w-full" placeholder="Email" />
                             <label className="fieldset-label">Email</label>
                             <input type="email" name="email" className="input focus:outline-none w-full" placeholder="Email" />
                             <label className="fieldset-label">Password</label>

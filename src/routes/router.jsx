@@ -6,6 +6,7 @@ import HomeLayout from '../Layout/HomeLayout';
 import Error from '../components/Error';
 import SignUp from '../user/SignUp';
 import SingIn from '../user/SingIn';
+import ViewCoffee from '../components/ViewCoffee';
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
                 path: '/update-coffee/:id',
                 element: <UpdateCoffee></UpdateCoffee>,
                 loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`)
-                
+            },
+            {
+                path: '/view-coffee/:id',
+                element: <ViewCoffee></ViewCoffee>,
+                loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`)
             },
             {
                 path: '/add-coffee',
