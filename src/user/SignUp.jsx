@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import signUpLottie from '../assets/lottie/sign up.json'
 import Lottie from "lottie-react";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
     const handleSignUp = e => {
         e.preventDefault();
-        const name = e.target.name.value;
+        // const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
@@ -15,9 +16,21 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    title: 'Successfully!',
+                    text: 'User added successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'Thanks'
+                });
             })
             .catch(error => {
-                console.log(error.message)
+                const errorMessage = error.message;
+                Swal.fire({
+                    title: 'Error!',
+                    text: `Something Error ${errorMessage}`,
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
             })
     }
     return (
