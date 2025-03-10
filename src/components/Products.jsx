@@ -15,7 +15,7 @@ const Products = () => {
                 <Link to='add-coffee' className="btn mt-3  text-xl text-white font-medium bg-[#EA4744]">Add Coffee <PiCoffee className="font-extrabold text-2xl" />
                 </Link>
             </div>
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid  md:grid-cols-2 gap-10">
                 {
                     coffees.map(coffee => <ProductView
                         key={coffee._id}

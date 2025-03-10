@@ -50,8 +50,11 @@ const ProductView = ({ coffee, coffees, setCoffee }) => {
                     <p>Category : {category}</p>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <button className="btn text-2xl text-white font-medium bg-[#D2B48C]">
-                        <IoEye /></button>
+                    <Link to={`/view-coffee/${_id}`}>
+                        <button className="btn text-2xl text-white font-medium bg-[#D2B48C]">
+                            <IoEye />
+                        </button>
+                    </Link>
                     <Link to={`/update-coffee/${_id}`}>
                         <button className="btn text-2xl text-white font-medium bg-[#3C393B]">
                             <FiEdit />

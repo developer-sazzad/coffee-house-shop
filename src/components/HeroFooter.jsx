@@ -10,7 +10,7 @@ const HeroFooter = () => {
     }
     return (
         <div className="bg-[#ECEAE3]">
-            <div className="container md:w-[90%] mx-auto grid grid-cols-4 gap-5">
+            <div className="container md:w-[90%] mx-auto p-10 lg:p-0 grid grid-cols-2 lg:grid-cols-4  gap-5">
                 <div className="py-10 space-y-3">
                     <img src={Icon1} alt="" />
                     <h4 style={titleStyle}>Awesome Aroma</h4>

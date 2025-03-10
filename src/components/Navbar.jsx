@@ -11,8 +11,8 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal text-xl px-1 space-x-5">
                         <NavLink to='/'>Home</NavLink>
                         <NavLink to='/add-coffee'>Add Coffee</NavLink>
-                        <NavLink to='/update-coffee'>Update Coffee</NavLink>
-                        <NavLink to='/error'>Error</NavLink>
+                        <NavLink to='/sign-in'>Sign In</NavLink>
+                        <NavLink to='/sign-up'>Sign Up</NavLink>
                     </ul>
                 </div>
             </div>

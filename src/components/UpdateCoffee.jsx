@@ -1,4 +1,5 @@
-import { useLoaderData } from "react-router-dom";
+import { TiArrowBackOutline } from "react-icons/ti";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
@@ -30,7 +31,7 @@ const UpdateCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.modifiedCount> 0) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'SuccessFully!',
                         text: 'Updated Coffee successfuly',
@@ -43,7 +44,13 @@ const UpdateCoffee = () => {
     return (
         <div className="w-[90%] mx-auto">
             <div className="p-8 md:px-20 md:py-16 my-10 bg-gray-300">
-                <h3 className="text-3xl font-bold text-center mb-10">Update a Coffee</h3>
+                <Link to='/'>
+                    <button className="btn btn-neutral text-white">
+                        <TiArrowBackOutline />
+                        Back to Home
+                    </button>
+                </Link>
+                <h3 className="text-3xl font-bold text-center pt-10 mb-10">Update a Coffee</h3>
                 <form onSubmit={handleUpdateCoffee} className="space-y-5">
                     {/* Add coffee name and quentity row */}
                     <div className="md:flex md:space-y-0 gap-5">
@@ -82,6 +89,7 @@ const UpdateCoffee = () => {
                     </label>
                     <input type="submit" className="btn btn-neutral mt-10 btn-lg w-full" value="Update Coffee" />
                 </form>
+
             </div>
         </div>
     );

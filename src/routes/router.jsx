@@ -4,6 +4,8 @@ import UpdateCoffee from '../components/UpdateCoffee';
 import MainLayout from '../Layout/MainLayout';
 import HomeLayout from '../Layout/HomeLayout';
 import Error from '../components/Error';
+import SignUp from '../user/SignUp';
+import SingIn from '../user/SingIn';
 
 const router = createBrowserRouter([
     {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
             {
                 path: '/add-coffee',
                 element: <AddCoffee></AddCoffee>
+            },
+            {
+                path: '/sign-up', 
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/sign-in',
+                element: <SingIn></SingIn>
             }
         ]
     },
